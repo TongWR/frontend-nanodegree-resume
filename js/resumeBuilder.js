@@ -14,6 +14,7 @@ var bio = {
   "display": function() {
     var header = $("#header");
     var topContacts = $("#topContacts");
+    var footerContacts = $("#footerContacts");
 
     // Display Name/Role
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
@@ -22,7 +23,7 @@ var bio = {
     header.prepend(formattedRole);
     header.prepend(formattedName);
 
-    // Display Contact Details
+    // Display Contact Details at the Top
     var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
     var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
     var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
@@ -47,7 +48,14 @@ var bio = {
       var formattedSkill = HTMLskills.replace("%data%", skill);
       skillList.append(formattedSkill);
     });
-  },
+
+    // Display Contact Details at the Bottom
+    footerContacts.append(formattedEmail);
+    footerContacts.append(formattedMobile);
+    footerContacts.append(formattedTwitter);
+    footerContacts.append(formattedGithub);
+    footerContacts.append(formattedLocation);
+  }
 };
 
 var education = {
