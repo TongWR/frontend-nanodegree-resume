@@ -12,30 +12,42 @@ var bio = {
   "skills": ["PH skill 1", "PH skill 2", "PH skill 3"],
   "biopic": "https://avatars0.githubusercontent.com/u/2169312",
   "display": function() {
+    var header = $("#header");
+    var topContacts = $("#topContacts");
 
-    // header begins
+    // Display Name/Role
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-    var header = $("#header");
+
     header.prepend(formattedRole);
     header.prepend(formattedName);
 
+    // Display Contact Details
     var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
     var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
     var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
     var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
     var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-    var topContacts = $("#topContacts");
     topContacts.append(formattedEmail);
     topContacts.append(formattedMobile);
     topContacts.append(formattedTwitter);
     topContacts.append(formattedGithub);
     topContacts.append(formattedLocation);
-    // header ends
 
+    // Display Picture/Welcome Message
     var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
     var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-  }
+    header.append(formattedPic);
+    header.append(formattedWelcomeMsg);
+
+    // Display Skills
+    header.append(HTMLskillsStart);
+    var skillList = $("#skills-h3");
+    bio.skills.forEach(function(skill) {
+      var formattedSkill = HTMLskills.replace("%data%", skill);
+      skillList.append(formattedSkill);
+    });
+  },
 };
 
 var education = {
