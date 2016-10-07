@@ -12,7 +12,14 @@ var bio = {
   "skills": ["PH skill 1", "PH skill 2", "PH skill 3"],
   "biopic": "https://avatars0.githubusercontent.com/u/2169312",
   "display": function() {
-    alert('Bio, yo!');
+
+    // header begins
+    var formattedName = HTMLheaderName.replace("%data%", bio.name);
+    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+    var header = $("#header");
+    header.prepend(formattedRole);
+    header.prepend(formattedName);
+    // header ends
   }
 };
 
@@ -120,3 +127,7 @@ var projects = {
     alert("Projects, yo!");
   }
 };
+
+$(function() {
+  bio.display();
+});
