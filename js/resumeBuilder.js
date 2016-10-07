@@ -6,7 +6,7 @@ var bio = {
     "email": "tong.worapol@gmail.com",
     "github": "TongWR",
     "twitter": "TongWRatanapan",
-    "location": "Chiang Mai, Thailand"
+    "location": "Chiang Mai"
   },
   "welcomeMessage": "PH Welcome Message",
   "skills": ["PH skill 1", "PH skill 2", "PH skill 3"],
@@ -19,7 +19,22 @@ var bio = {
     var header = $("#header");
     header.prepend(formattedRole);
     header.prepend(formattedName);
+
+    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+    var topContacts = $("#topContacts");
+    topContacts.append(formattedEmail);
+    topContacts.append(formattedMobile);
+    topContacts.append(formattedTwitter);
+    topContacts.append(formattedGithub);
+    topContacts.append(formattedLocation);
     // header ends
+
+    var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
+    var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
   }
 };
 
@@ -35,7 +50,7 @@ var education = {
     },
     {
       "name": "University of New South Wales",
-      "location": "Sydney, Australia",
+      "location": "Sydney",
       "degree": "Exchange Program",
       "majors": ["Computer Engineering"],
       "dates": "Mar 2013 - Jun 2013",
@@ -78,14 +93,14 @@ var work = {
     {
       "employer": "flipped (Thailand)",
       "title": "CEO and Co-founder",
-      "location": "Chiang Mai, Thailand",
+      "location": "Chiang Mai",
       "dates": "Nov 2014 - Sep 2016",
       "description": "flipped blah blah blah"
     },
     {
       "employer": "Garena",
       "title": "Mobile Game Associate",
-      "location": "Bangkok, Thailand",
+      "location": "Bangkok",
       "dates": "May 2014 - Nov 2014",
       "description": "Garena blah blah blah"
     },
