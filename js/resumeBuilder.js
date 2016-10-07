@@ -53,6 +53,14 @@ var bio = {
 var education = {
   "schools": [
     {
+      "name": "Malaysian Global Innovation & Creativity Centre",
+      "location": "Cyberjaya",
+      "degree": "Startup Accelerator Program",
+      "majors": "ASEAN Track",
+      "dates": "Jul 2015 - Nov 2015",
+      "url": "http://accelerator.mymagic.my/en/asean/"
+    },
+    {
       "name": "National University of Singapore",
       "location": "Singapore",
       "degree": "Bachelor of Engineering",
@@ -155,6 +163,12 @@ var projects = {
   }
 };
 
+var displayMap = function() {
+  var map = $("#mapDiv");
+  map.append(googleMap);
+}
+
 $(function() {
   bio.display();
+  displayMap();
 });
