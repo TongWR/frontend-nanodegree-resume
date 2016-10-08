@@ -216,7 +216,26 @@ var projects = {
     }
   ],
   "display": function() {
-    alert("Projects, yo!");
+    var projDiv = $("#projects");
+
+    // Display Projects
+    projects.projects.forEach(function(project) {
+      projDiv.append(HTMLprojectStart);
+      var currentEntry = $(".project-entry:last");
+
+      var formattedTitle = HTMLprojectTitle.replace("%data%", project.title);
+      var formattedDates = HTMLprojectDates.replace("%data%", project.dates);
+      var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
+
+      currentEntry.append(formattedTitle);
+      currentEntry.append(formattedDates);
+      currentEntry.append(formattedDescription);
+
+      project.images.forEach(function(image) {
+        var formattedImage = HTMLprojectImage.replace("%data%", image);
+        currentEntry.append(formattedImage);
+      })
+    })
   }
 };
 
@@ -228,6 +247,7 @@ var displayMap = function() {
 $(function() {
   bio.display();
   work.display();
+  projects.display();
   education.display();
 
   displayMap();
