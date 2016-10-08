@@ -1,6 +1,6 @@
 var bio = {
   "name": "Tong W. Ratanapan",
-  "role": "Front-End Wannabe",
+  "role": "Front-End Ninja",
   "contacts": {
     "mobile": "(+66)818820369",
     "email": "tong.worapol@gmail.com",
@@ -8,8 +8,8 @@ var bio = {
     "twitter": "TongWRatanapan",
     "location": "Chiang Mai"
   },
-  "welcomeMessage": "PH Welcome Message",
-  "skills": ["PH skill 1", "PH skill 2", "PH skill 3"],
+  "welcomeMessage": "alert(\"Hello, World!\");",
+  "skills": ["HTML5", "CSS3", "JavaScript", "jQuery", "Bootstrap", "Git and GitHub"],
   "biopic": "https://avatars0.githubusercontent.com/u/2169312",
   "display": function() {
     var header = $("#header");
@@ -200,19 +200,19 @@ var projects = {
       "title": "flipped 2.0: Virtual TA for High School Maths",
       "dates": "Mar 2016 - Sep 2016",
       "description": "flipped 2.0 blah blah",
-      "images": ["https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150", "https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150", "https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150"]
+      "images": ["images/1.jpg", "images/2.jpg", "images/3.jpg"]
     },
     {
       "title": "Incentive-based Cloud Pricing for Improved Resource Utilization and Revenue",
       "dates": "Aug 2013 - Apr 2014",
       "description": "Cloud Pricing blah blah",
-      "images": ["https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150", "https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150"]
+      "images": ["images/4.jpg", "images/5.jpg"]
     },
     {
       "title": "Embedded Systems Design Project - Hypermarket",
       "dates": "Aug 2012 - Dec 2012",
       "description": "Hypermartket blah blah",
-      "images": ["https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150"]
+      "images": ["images/6.jpg"]
     }
   ],
   "display": function() {
