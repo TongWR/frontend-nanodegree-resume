@@ -54,7 +54,7 @@ var bio = {
     bio.skills.forEach(function(skill) {
       var formattedSkill = HTMLskills.replace("%data%", skill);
       skillList.append(formattedSkill);
-    })
+    });
 
     /* Display Contact Details at the Bottom */
     footerContacts.append(formattedEmail);
@@ -114,9 +114,9 @@ var education = {
       var currentEntry = $(".education-entry:last");
 
       // Replace twice! First, school name. Second, URL to school website.
-      var formattedSchool = HTMLschoolName.replace("%data%", school.name).replace("#", school.url) + HTMLschoolDegree.replace("%data%", school.degree);;
+      var formattedSchool = HTMLschoolName.replace("%data%", school.name).replace("#", school.url) + HTMLschoolDegree.replace("%data%", school.degree);
       var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
-      var formattedMajors = HTMLschoolMajor.replace("%data%", school.majors.join([seperator = ', ']));
+      var formattedMajors = HTMLschoolMajor.replace("%data%", school.majors.join([', ']));
       var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
 
       // Then insert all school information to the container div
@@ -124,7 +124,7 @@ var education = {
       currentEntry.append(formattedLocation);
       currentEntry.append(formattedDates);
       currentEntry.append(formattedMajors);
-    })
+    });
 
     /* Display Online Courses */
 
@@ -143,7 +143,7 @@ var education = {
       currentEntry.append(formattedCourse);
       currentEntry.append(formattedDates);
       currentEntry.append(formattedURL);
-    })
+    });
   }
 };
 
@@ -184,7 +184,7 @@ var work = {
       currentEntry.append(formattedDates);
       currentEntry.append(formattedLocation);
       currentEntry.append(formattedDescription);
-    })
+    });
   }
 };
 
@@ -223,10 +223,10 @@ var projects = {
 
       // Oh look! forEach inside forEach because each project can have more than 1 image
       project.images.forEach(function(image) {
-          var formattedImage = HTMLprojectImage.replace("%data%", image);
-          currentEntry.append(formattedImage);
-      })
-    })
+        var formattedImage = HTMLprojectImage.replace("%data%", image);
+        currentEntry.append(formattedImage);
+      });
+    });
   }
 };
 
@@ -236,7 +236,7 @@ But decided to do this for the sake of modularity and consistency */
 var displayMap = function() {
   var map = $("#mapDiv");
   map.append(googleMap);
-}
+};
 
 $(function() {
   bio.display();
