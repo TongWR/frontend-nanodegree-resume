@@ -174,7 +174,23 @@ var work = {
     }
   ],
   "display": function() {
-    alert("Work, yo!");
+    var workDiv = $("#workExperience");
+
+    // Display Work
+    work.jobs.forEach(function(job) {
+      workDiv.append(HTMLworkStart);
+      var currentEntry = $(".work-entry:last");
+
+      var formattedWork = HTMLworkEmployer.replace("%data%", job.employer) + HTMLworkTitle.replace("%data%", job.title);
+      var formattedDates = HTMLworkDates.replace("%data%", job.dates);
+      var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
+      var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
+
+      currentEntry.append(formattedWork);
+      currentEntry.append(formattedDates);
+      currentEntry.append(formattedLocation);
+      currentEntry.append(formattedDescription);
+    })
   }
 };
 
@@ -211,6 +227,8 @@ var displayMap = function() {
 
 $(function() {
   bio.display();
+  work.display();
   education.display();
+
   displayMap();
 });
