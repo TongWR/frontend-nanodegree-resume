@@ -16,14 +16,17 @@ var bio = {
     var topContacts = $("#topContacts");
     var footerContacts = $("#footerContacts");
 
-    // Display Name/Role
+    /* Display Name and Role */
+
+    // Format Name and Role
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 
+    // Insert Name and Role into header
     header.prepend(formattedRole);
     header.prepend(formattedName);
 
-    // Display Contact Details at the Top
+    /* Display Contact Details at the Top */
     var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
     var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
     var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
@@ -35,21 +38,25 @@ var bio = {
     topContacts.append(formattedGithub);
     topContacts.append(formattedLocation);
 
-    // Display Picture/Welcome Message
+    /* Display Picture/Welcome Message */
     var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
     var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     header.append(formattedPic);
     header.append(formattedWelcomeMsg);
 
-    // Display Skills
+    /* Display Skills */
+
+    // Insert Skill List before inserting Skills
     header.append(HTMLskillsStart);
     var skillList = $("#skills");
+
+    // Insert Skills using forEach on bio.skills
     bio.skills.forEach(function(skill) {
       var formattedSkill = HTMLskills.replace("%data%", skill);
       skillList.append(formattedSkill);
     })
 
-    // Display Contact Details at the Bottom
+    /* Display Contact Details at the Bottom */
     footerContacts.append(formattedEmail);
     footerContacts.append(formattedMobile);
     footerContacts.append(formattedTwitter);
@@ -59,73 +66,72 @@ var bio = {
 };
 
 var education = {
-  "schools": [
-    {
-      "name": "Malaysian Global Innovation & Creativity Centre",
-      "location": "Cyberjaya",
-      "degree": "Startup Accelerator Program",
-      "majors": ["ASEAN Track"],
-      "dates": "2015",
-      "url": "http://accelerator.mymagic.my/en/asean/"
-    },
-    {
-      "name": "National University of Singapore",
-      "location": "Singapore",
-      "degree": "Bachelor of Engineering",
-      "majors": ["Computer Engineering"],
-      "dates": "2014",
-      "url": "http://www.nus.edu.sg/"
-    },
-    {
-      "name": "University of New South Wales",
-      "location": "Sydney",
-      "degree": "Exchange Program",
-      "majors": ["Computer Engineering"],
-      "dates": "2013",
-      "url": "https://www.unsw.edu.au/"
-    }
-  ],
-  "onlineCourses": [
-    {
-      "title": "German",
-      "school": "Duolingo",
-      "dates": "Ongoing",
-      "url": "https://www.duolingo.com/course/de/en/Learn-German-Online"
-    },
-    {
-      "title": "Game Theory II: Advanced Applications",
-      "school": "Coursera",
-      "dates": "2014",
-      "url": "https://www.coursera.org/learn/game-theory-2"
-    },
-    {
-      "title": "Game Theory",
-      "school": "Coursera",
-      "dates": "2013",
-      "url": "https://www.coursera.org/learn/game-theory-1"
-    }
-  ],
+  "schools": [{
+    "name": "Malaysian Global Innovation & Creativity Centre",
+    "location": "Cyberjaya",
+    "degree": "Startup Accelerator Program",
+    "majors": ["ASEAN Track"],
+    "dates": "2015",
+    "url": "http://accelerator.mymagic.my/en/asean/"
+  }, {
+    "name": "National University of Singapore",
+    "location": "Singapore",
+    "degree": "Bachelor of Engineering",
+    "majors": ["Computer Engineering"],
+    "dates": "2014",
+    "url": "http://www.nus.edu.sg/"
+  }, {
+    "name": "University of New South Wales",
+    "location": "Sydney",
+    "degree": "Exchange Program",
+    "majors": ["Computer Engineering"],
+    "dates": "2013",
+    "url": "https://www.unsw.edu.au/"
+  }],
+  "onlineCourses": [{
+    "title": "German",
+    "school": "Duolingo",
+    "dates": "Ongoing",
+    "url": "https://www.duolingo.com/course/de/en/Learn-German-Online"
+  }, {
+    "title": "Game Theory II: Advanced Applications",
+    "school": "Coursera",
+    "dates": "2014",
+    "url": "https://www.coursera.org/learn/game-theory-2"
+  }, {
+    "title": "Game Theory",
+    "school": "Coursera",
+    "dates": "2013",
+    "url": "https://www.coursera.org/learn/game-theory-1"
+  }],
   "display": function() {
     var eduDiv = $("#education");
 
-    // Display Schools
+    /* Display Schools */
     education.schools.forEach(function(school) {
+      // Insert a container div for all information related to that school first
       eduDiv.append(HTMLschoolStart);
       var currentEntry = $(".education-entry:last");
 
+      // Replace twice! First, school name. Second, URL to school website.
       var formattedSchool = HTMLschoolName.replace("%data%", school.name).replace("#", school.url) + HTMLschoolDegree.replace("%data%", school.degree);;
       var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
       var formattedMajors = HTMLschoolMajor.replace("%data%", school.majors.join([seperator = ', ']));
       var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
 
+      // Then insert all school information to the container div
       currentEntry.append(formattedSchool);
       currentEntry.append(formattedLocation);
       currentEntry.append(formattedDates);
       currentEntry.append(formattedMajors);
     })
 
-    // Display Online Courses
+    /* Display Online Courses */
+
+    // Insert Header for Online Courses
     eduDiv.append(HTMLonlineClasses);
+
+    // Insert Online Courses
     education.onlineCourses.forEach(function(course) {
       eduDiv.append(HTMLschoolStart);
       var currentEntry = $(".education-entry:last");
@@ -142,33 +148,29 @@ var education = {
 };
 
 var work = {
-  "jobs": [
-    {
-      "employer": "flipped (Thailand)",
-      "title": "CEO and Co-founder",
-      "location": "Chiang Mai",
-      "dates": "Nov 2014 - Sep 2016",
-      "description": "flipped blah blah blah"
-    },
-    {
-      "employer": "Garena",
-      "title": "Mobile Game Associate",
-      "location": "Bangkok",
-      "dates": "May 2014 - Nov 2014",
-      "description": "Garena blah blah blah"
-    },
-    {
-      "employer": "National University of Singapore",
-      "title": "Teaching Assistant",
-      "location": "Singapore",
-      "dates": "Aug 2013 - Nov 2013",
-      "description": "NUS blah blah blah"
-    }
-  ],
+  "jobs": [{
+    "employer": "flipped (Thailand)",
+    "title": "CEO and Co-founder",
+    "location": "Chiang Mai",
+    "dates": "Nov 2014 - Sep 2016",
+    "description": "flipped blah blah blah"
+  }, {
+    "employer": "Garena",
+    "title": "Mobile Game Associate",
+    "location": "Bangkok",
+    "dates": "May 2014 - Nov 2014",
+    "description": "Garena blah blah blah"
+  }, {
+    "employer": "National University of Singapore",
+    "title": "Teaching Assistant",
+    "location": "Singapore",
+    "dates": "Aug 2013 - Nov 2013",
+    "description": "NUS blah blah blah"
+  }],
   "display": function() {
     var workDiv = $("#workExperience");
 
-    // Display Work
+    /* Display Work */
     work.jobs.forEach(function(job) {
       workDiv.append(HTMLworkStart);
       var currentEntry = $(".work-entry:last");
@@ -187,30 +189,26 @@ var work = {
 };
 
 var projects = {
-  "projects": [
-    {
-      "title": "flipped 2.0: Virtual TA for High School Maths",
-      "dates": "Mar 2016 - Sep 2016",
-      "description": "flipped 2.0 blah blah",
-      "images": ["images/1.jpg", "images/2.jpg", "images/3.jpg"]
-    },
-    {
-      "title": "Incentive-based Cloud Pricing for Improved Resource Utilization and Revenue",
-      "dates": "Aug 2013 - Apr 2014",
-      "description": "Cloud Pricing blah blah",
-      "images": ["images/4.jpg", "images/5.jpg"]
-    },
-    {
-      "title": "Embedded Systems Design Project - Hypermarket",
-      "dates": "Aug 2012 - Dec 2012",
-      "description": "Hypermartket blah blah",
-      "images": ["images/6.jpg"]
-    }
-  ],
+  "projects": [{
+    "title": "flipped 2.0: Virtual TA for High School Maths",
+    "dates": "Mar 2016 - Sep 2016",
+    "description": "flipped 2.0 blah blah",
+    "images": ["images/1.jpg", "images/2.jpg", "images/3.jpg"]
+  }, {
+    "title": "Incentive-based Cloud Pricing for Improved Resource Utilization and Revenue",
+    "dates": "Aug 2013 - Apr 2014",
+    "description": "Cloud Pricing blah blah",
+    "images": ["images/4.jpg", "images/5.jpg"]
+  }, {
+    "title": "Embedded Systems Design Project - Hypermarket",
+    "dates": "Aug 2012 - Dec 2012",
+    "description": "Hypermartket blah blah",
+    "images": ["images/6.jpg"]
+  }],
   "display": function() {
     var projDiv = $("#projects");
 
-    // Display Projects
+    /* Display Projects */
     projects.projects.forEach(function(project) {
       projDiv.append(HTMLprojectStart);
       var currentEntry = $(".project-entry:last");
@@ -223,14 +221,18 @@ var projects = {
       currentEntry.append(formattedDates);
       currentEntry.append(formattedDescription);
 
+      // Oh look! forEach inside forEach because each project can have more than 1 image
       project.images.forEach(function(image) {
-        var formattedImage = HTMLprojectImage.replace("%data%", image);
-        currentEntry.append(formattedImage);
+          var formattedImage = HTMLprojectImage.replace("%data%", image);
+          currentEntry.append(formattedImage);
       })
     })
   }
 };
 
+/* function for displaying Google Maps
+Could have done without a function
+But decided to do this for the sake of modularity and consistency */
 var displayMap = function() {
   var map = $("#mapDiv");
   map.append(googleMap);
@@ -241,6 +243,5 @@ $(function() {
   work.display();
   projects.display();
   education.display();
-
   displayMap();
 });
