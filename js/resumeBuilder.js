@@ -65,7 +65,7 @@ var education = {
       "location": "Mountain View",
       "degree": "Nanodegree",
       "majors": ["Front-End Web Developer"],
-      "dates": "2016 (ongoing)",
+      "dates": "2016 (Ongoing)",
       "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
     },
     {
@@ -79,7 +79,7 @@ var education = {
     {
       "name": "National University of Singapore",
       "location": "Singapore",
-      "degree": "Bachelor of Engineering",
+      "degree": "B.Eng.",
       "majors": ["Computer Engineering"],
       "dates": "2014",
       "url": "http://www.nus.edu.sg/"
