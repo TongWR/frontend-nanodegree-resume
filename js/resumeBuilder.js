@@ -119,7 +119,7 @@ var education = {
       eduDiv.append(HTMLschoolStart);
       var currentEntry = $(".education-entry:last")
 
-      var formattedSchool = HTMLschoolName.replace("%data%", school.name) + HTMLschoolDegree.replace("%data%", school.degree);;
+      var formattedSchool = HTMLschoolName.replace("%data%", school.name).replace("#", school.url) + HTMLschoolDegree.replace("%data%", school.degree);;
       var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
       var formattedMajors = HTMLschoolMajor.replace("%data%", school.majors.join([seperator = ', ']));
       var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
