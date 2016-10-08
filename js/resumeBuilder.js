@@ -43,11 +43,11 @@ var bio = {
 
     // Display Skills
     header.append(HTMLskillsStart);
-    var skillList = $("#skills-h3");
+    var skillList = $("#skills");
     bio.skills.forEach(function(skill) {
       var formattedSkill = HTMLskills.replace("%data%", skill);
       skillList.append(formattedSkill);
-    });
+    })
 
     // Display Contact Details at the Bottom
     footerContacts.append(formattedEmail);
@@ -112,7 +112,23 @@ var education = {
     }
   ],
   "display": function() {
-    alert("Education, yo!");
+    var eduDiv = $("#education");
+
+    // Display Schools
+    education.schools.forEach(function(school) {
+      eduDiv.append(HTMLschoolStart);
+
+      var formattedSchool = HTMLschoolName.replace("%data%", school.name) + HTMLschoolDegree.replace("%data%", school.degree);;
+      var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
+      // var formattedMajors = /* array! */;
+      var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
+
+      eduDiv.append(formattedSchool);
+      eduDiv.append(formattedLocation);
+      eduDiv.append(formattedDates);
+    })
+
+    // Display Online Courses
   }
 };
 
@@ -178,5 +194,6 @@ var displayMap = function() {
 
 $(function() {
   bio.display();
+  education.display();
   displayMap();
 });
