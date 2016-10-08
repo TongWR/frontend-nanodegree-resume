@@ -61,6 +61,14 @@ var bio = {
 var education = {
   "schools": [
     {
+      "name": "Udacity",
+      "location": "Mountain View",
+      "degree": "Nanodegree",
+      "majors": ["Front-End Web Developer"],
+      "dates": "2016 (ongoing)",
+      "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
+    },
+    {
       "name": "Malaysian Global Innovation & Creativity Centre",
       "location": "Cyberjaya",
       "degree": "Startup Accelerator Program",
@@ -87,27 +95,21 @@ var education = {
   ],
   "onlineCourses": [
     {
-      "title": "Front-End Developer Nanodegree",
-      "school": "Udacity",
-      "dates": "Aug 2016 - present",
-      "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
-    },
-    {
       "title": "German",
       "school": "Duolingo",
-      "dates": "Big Bang - present",
+      "dates": "Ongoing",
       "url": "https://www.duolingo.com/course/de/en/Learn-German-Online"
     },
     {
       "title": "Game Theory II: Advanced Applications",
       "school": "Coursera",
-      "dates": "",
+      "dates": "2014",
       "url": "https://www.coursera.org/learn/game-theory-2"
     },
     {
       "title": "Game Theory",
       "school": "Coursera",
-      "dates": "",
+      "dates": "2013",
       "url": "https://www.coursera.org/learn/game-theory-1"
     }
   ],
@@ -117,7 +119,7 @@ var education = {
     // Display Schools
     education.schools.forEach(function(school) {
       eduDiv.append(HTMLschoolStart);
-      var currentEntry = $(".education-entry:last")
+      var currentEntry = $(".education-entry:last");
 
       var formattedSchool = HTMLschoolName.replace("%data%", school.name).replace("#", school.url) + HTMLschoolDegree.replace("%data%", school.degree);;
       var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
@@ -131,6 +133,19 @@ var education = {
     })
 
     // Display Online Courses
+    eduDiv.append(HTMLonlineClasses);
+    education.onlineCourses.forEach(function(course) {
+      eduDiv.append(HTMLschoolStart);
+      var currentEntry = $(".education-entry:last");
+
+      var formattedCourse = HTMLonlineTitle.replace("%data%", course.title) + HTMLonlineSchool.replace("%data%", course.school);
+      var formattedDates = HTMLonlineDates.replace("%data%", course.dates);
+      var formattedURL = HTMLonlineURL.replace("%data%", course.url);
+
+      currentEntry.append(formattedCourse);
+      currentEntry.append(formattedDates);
+      currentEntry.append(formattedURL);
+    })
   }
 };
 
