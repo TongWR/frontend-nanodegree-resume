@@ -211,16 +211,29 @@ span {
   }
 }
 
+#richMedia {
+  display: flex;
+  height: 500px;
+}
+
 #map {
   display: block;
   height: 100%;
   margin: 0 5%;
+  padding-bottom: 5%;
 }
 
 #mapDiv {
   height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
+  flex: 1 0 400px;
+}
+
+#mapTitle {
+  padding: 10px;
+}
+
+#tweetDiv {
+  flex 1 0 200px;
 }
 
 @media only screen and (min-width: 750px) {

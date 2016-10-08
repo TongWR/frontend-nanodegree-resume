@@ -30,9 +30,16 @@
     <div id="education" class="gray">
       <h2>Education</h2>
     </div>
-    <div id="mapDiv">
-      <h2>Where I've Lived and Worked</h2>
-    </div>
+    <!-- Add a section element as a container of Google Maps and Twitter Feed -->
+    <section id="richMedia">
+      <div id="mapDiv">
+        <h2 id="mapTitle">Where I've Lived and Worked</h2>
+      </div>
+      <div id="tweetDiv">
+        <!-- Set Twitter Feed height in HTML because https://dev.twitter.com/web/embedded-timelines/parameters -->
+        <a class="twitter-timeline" height="500" href="https://twitter.com/TongWRatanapan">Tweets by TongWRatanapan</a>
+      </div>
+    </section>
     <div id="lets-connect" class="dark-gray">
       <h2 class="orange center-text">Let's Connect</h2>
         <ul id="footerContacts" class="flex-box">
@@ -42,39 +49,6 @@
   <script src="js/jQuery.js"></script>
   <script src="js/helper.js"></script>
   <script src="js/resumeBuilder.js"></script>
-
-
-  <!--
-  These scripts are written in JavaScript. You'll be breaking them down as part of
-  a quiz. Essentially, the next few lines are checking to see if you have not
-  changed each section of the resume. If you have not made any changes to a section
-  of the resume, then that part of the resume does not show up. More on this in the
-  course.
-  -->
-
-  <script>
-/*
-    if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('topContacts').style.display = 'none';
-    }
-    if(document.getElementsByTagName('h1').length === 0) {
-      document.getElementById('header').style.display = 'none';
-    }
-    if(document.getElementsByClassName('work-entry').length === 0) {
-      document.getElementById('workExperience').style.display = 'none';
-    }
-    if(document.getElementsByClassName('project-entry').length === 0) {
-      document.getElementById('projects').style.display = 'none';
-    }
-    if(document.getElementsByClassName('education-entry').length === 0) {
-      document.getElementById('education').style.display = 'none';
-    }
-    if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('lets-connect').style.display = 'none';
-    }
-    if(document.getElementById('map') === null) {
-      document.getElementById('mapDiv').style.display = 'none';
-    }*/
-  </script>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>

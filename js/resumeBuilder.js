@@ -61,14 +61,6 @@ var bio = {
 var education = {
   "schools": [
     {
-      "name": "Udacity",
-      "location": "Mountain View",
-      "degree": "Nanodegree",
-      "majors": ["Front-End Web Developer"],
-      "dates": "2016 (Ongoing)",
-      "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
-    },
-    {
       "name": "Malaysian Global Innovation & Creativity Centre",
       "location": "Cyberjaya",
       "degree": "Startup Accelerator Program",
@@ -79,7 +71,7 @@ var education = {
     {
       "name": "National University of Singapore",
       "location": "Singapore",
-      "degree": "B.Eng.",
+      "degree": "Bachelor of Engineering",
       "majors": ["Computer Engineering"],
       "dates": "2014",
       "url": "http://www.nus.edu.sg/"
