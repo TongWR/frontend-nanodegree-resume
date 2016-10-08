@@ -64,8 +64,8 @@ var education = {
       "name": "Malaysian Global Innovation & Creativity Centre",
       "location": "Cyberjaya",
       "degree": "Startup Accelerator Program",
-      "majors": "ASEAN Track",
-      "dates": "Jul 2015 - Nov 2015",
+      "majors": ["ASEAN Track"],
+      "dates": "2015",
       "url": "http://accelerator.mymagic.my/en/asean/"
     },
     {
@@ -73,7 +73,7 @@ var education = {
       "location": "Singapore",
       "degree": "Bachelor of Engineering",
       "majors": ["Computer Engineering"],
-      "dates": "Jul 2010 - May 2014",
+      "dates": "2014",
       "url": "http://www.nus.edu.sg/"
     },
     {
@@ -81,7 +81,7 @@ var education = {
       "location": "Sydney",
       "degree": "Exchange Program",
       "majors": ["Computer Engineering"],
-      "dates": "Mar 2013 - Jun 2013",
+      "dates": "2013",
       "url": "https://www.unsw.edu.au/"
     }
   ],
@@ -117,15 +117,17 @@ var education = {
     // Display Schools
     education.schools.forEach(function(school) {
       eduDiv.append(HTMLschoolStart);
+      var currentEntry = $(".education-entry:last")
 
       var formattedSchool = HTMLschoolName.replace("%data%", school.name) + HTMLschoolDegree.replace("%data%", school.degree);;
       var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
-      // var formattedMajors = /* array! */;
+      var formattedMajors = HTMLschoolMajor.replace("%data%", school.majors.join([seperator = ', ']));
       var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
 
-      eduDiv.append(formattedSchool);
-      eduDiv.append(formattedLocation);
-      eduDiv.append(formattedDates);
+      currentEntry.append(formattedSchool);
+      currentEntry.append(formattedLocation);
+      currentEntry.append(formattedDates);
+      currentEntry.append(formattedMajors);
     })
 
     // Display Online Courses
